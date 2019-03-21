@@ -1,0 +1,9 @@
+node_modules
+.env
+notes.txt
+.idea
+normalize-edu/dist/
+normalize-edu/node_modules/
+normalize-edu/src
+normalize-edu/gulpfile.js
+normalize-edu/tsconfig.json
