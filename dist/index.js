@@ -10,7 +10,7 @@ const envFile = require('../.env');
 const dotEnv = require('dotenv').load(envFile);
 const Normalize = require('../normalize-edu/norm/normalize').Normalize;
 const models = require('./models');
-const n = new Normalize({
+const options = {
     port: process.env.PORT,
     cluster: true,
     seedDir: '../seed',
@@ -23,7 +23,8 @@ const n = new Normalize({
     dbHost: process.env.DB_HOST,
     dbPort: process.env.DB_PORT,
     corsWhitelist: [process.env.CLIENT_URL],
-}, models);
+};
+const n = new Normalize(options, models);
 n.ready((norm) => __awaiter(this, void 0, void 0, function* () {
     const mKeys = Object.keys(models) || [];
     const promises = mKeys && mKeys.length > 0 ? mKeys.map((key, index) => {
