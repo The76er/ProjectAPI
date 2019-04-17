@@ -8,6 +8,7 @@ export class Temp {
       Celsius: { type: String, maxlength: 24 },
       Fahrenheit: { type: String, maxlength: 24 },
       Kelvin: { type: String, maxlength: 24 },
+      CalculatedTemp: { type: String, maxlength: 24 },
       user_id: {
         type: Number,
         key: 'foreign',

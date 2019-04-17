@@ -8,14 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class Temp {
+class Vol {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                Celsius: { type: String, maxlength: 24 },
-                Fahrenheit: { type: String, maxlength: 24 },
-                Kelvin: { type: String, maxlength: 24 },
-                CalculatedTemp: { type: String, maxlength: 24 },
+                Liter: { type: String, maxlength: 24 },
+                Gallon: { type: String, maxlength: 24 },
+                Pint: { type: String, maxlength: 24 },
+                CalculatedVol: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -24,49 +24,49 @@ class Temp {
                     onUpdate: 'cascade'
                 },
             }, 'A table to store calculated items', [{
-                    route: '/get-all-temps',
+                    route: '/get-all-vol',
                     method: 'POST',
-                    callback: this.getALLtemps,
+                    callback: this.getALLvol,
                     requireToken: true,
                 },
                 {
-                    route: '/get-temp-by-id/:id',
+                    route: '/get-vol-by-id/:id',
                     method: 'POST',
-                    callback: this.getTempById,
+                    callback: this.getVolById,
                     requireToken: true,
                 },
                 {
-                    route: '/create-temp',
+                    route: '/create-vol',
                     method: 'POST',
-                    callback: this.createTemp,
+                    callback: this.createVol,
                     requireToken: true,
                 },
                 {
-                    route: '/update-temp/id/:id',
+                    route: '/update-vol/id/:id',
                     method: 'PUT',
-                    callback: this.updateTemp,
+                    callback: this.updateVol,
                     requireToken: true,
                 },
                 {
-                    route: '/delete-temp/id/:id',
+                    route: '/delete-vol/id/:id',
                     method: 'DELETE',
-                    callback: this.deleteTemp,
+                    callback: this.deleteVol,
                     requireToken: true,
                 }
             ]];
     }
-    getALLtemps(model) {
+    getALLvol(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]
             };
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.get(req, null, null);
+            let volCtrl = model.controller;
+            let resp = yield volCtrl.get(req, null, null);
             console.log('from calc model resp: ', resp);
             res.json({ message: 'works...', resp });
         });
     }
-    getTempById(model) {
+    getVolById(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"],
@@ -74,33 +74,33 @@ class Temp {
                     id: req.params.id
                 }
             };
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.get(req, null, null);
+            let volCtrl = model.controller;
+            let resp = yield volCtrl.get(req, null, null);
             console.log('from calc model resp: ', resp);
             res.json({ message: 'Success', resp });
         });
     }
-    createTemp(model) {
+    createVol(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.insert(req, null, null);
+            let volCtrl = model.controller;
+            let resp = yield volCtrl.insert(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
-    updateTemp(model) {
+    updateVol(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.update(req, null, null);
+            let volCtrl = model.controller;
+            let resp = yield volCtrl.update(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
-    deleteTemp(model) {
+    deleteVol(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.remove(req, null, null);
+            let volCtrl = model.controller;
+            let resp = yield volCtrl.remove(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
@@ -111,4 +111,4 @@ class Temp {
         return this._model;
     }
 }
-exports.Temp = Temp;
+exports.Vol = Vol;

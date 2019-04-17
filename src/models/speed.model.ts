@@ -7,7 +7,7 @@ export class Speed {
       id: { type: Number, key: 'primary' },
       MPH: { type: String, maxlength: 24 },
       KPH: { type: String, maxlength: 24 },
-
+      CalculatedSpeed: { type: String, maxlength: 24 },
       user_id: {
         type: Number,
         key: 'foreign',

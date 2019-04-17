@@ -8,14 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class Temp {
+class Speed {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                Celsius: { type: String, maxlength: 24 },
-                Fahrenheit: { type: String, maxlength: 24 },
-                Kelvin: { type: String, maxlength: 24 },
-                CalculatedTemp: { type: String, maxlength: 24 },
+                MPH: { type: String, maxlength: 24 },
+                KPH: { type: String, maxlength: 24 },
+                CalculatedSpeed: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -24,49 +23,49 @@ class Temp {
                     onUpdate: 'cascade'
                 },
             }, 'A table to store calculated items', [{
-                    route: '/get-all-temps',
+                    route: '/get-all-speeds',
                     method: 'POST',
-                    callback: this.getALLtemps,
+                    callback: this.getALLspeeds,
                     requireToken: true,
                 },
                 {
-                    route: '/get-temp-by-id/:id',
+                    route: '/get-speed-by-id/:id',
                     method: 'POST',
-                    callback: this.getTempById,
+                    callback: this.getSpeedById,
                     requireToken: true,
                 },
                 {
-                    route: '/create-temp',
+                    route: '/create-speed',
                     method: 'POST',
-                    callback: this.createTemp,
+                    callback: this.createSpeed,
                     requireToken: true,
                 },
                 {
-                    route: '/update-temp/id/:id',
+                    route: '/update-speed/id/:id',
                     method: 'PUT',
-                    callback: this.updateTemp,
+                    callback: this.updateSpeed,
                     requireToken: true,
                 },
                 {
-                    route: '/delete-temp/id/:id',
+                    route: '/delete-speed/id/:id',
                     method: 'DELETE',
-                    callback: this.deleteTemp,
+                    callback: this.deleteSpeed,
                     requireToken: true,
                 }
             ]];
     }
-    getALLtemps(model) {
+    getALLspeeds(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]
             };
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.get(req, null, null);
+            let speedCtrl = model.controller;
+            let resp = yield speedCtrl.get(req, null, null);
             console.log('from calc model resp: ', resp);
             res.json({ message: 'works...', resp });
         });
     }
-    getTempById(model) {
+    getSpeedById(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"],
@@ -74,33 +73,33 @@ class Temp {
                     id: req.params.id
                 }
             };
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.get(req, null, null);
+            let speedCtrl = model.controller;
+            let resp = yield speedCtrl.get(req, null, null);
             console.log('from calc model resp: ', resp);
             res.json({ message: 'Success', resp });
         });
     }
-    createTemp(model) {
+    createSpeed(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.insert(req, null, null);
+            let speedCtrl = model.controller;
+            let resp = yield speedCtrl.insert(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
-    updateTemp(model) {
+    updateSpeed(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.update(req, null, null);
+            let speedCtrl = model.controller;
+            let resp = yield speedCtrl.update(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
-    deleteTemp(model) {
+    deleteSpeed(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.remove(req, null, null);
+            let speedCtrl = model.controller;
+            let resp = yield speedCtrl.remove(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
@@ -111,4 +110,4 @@ class Temp {
         return this._model;
     }
 }
-exports.Temp = Temp;
+exports.Speed = Speed;

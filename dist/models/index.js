@@ -7,3 +7,6 @@ __export(require("./test.model"));
 __export(require("./exam.model"));
 __export(require("./calc.model"));
 __export(require("./temp.model"));
+__export(require("./speed.model"));
+__export(require("./length.model"));
+__export(require("./volume.model"));

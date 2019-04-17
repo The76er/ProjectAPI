@@ -8,14 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class Temp {
+class Length {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                Celsius: { type: String, maxlength: 24 },
-                Fahrenheit: { type: String, maxlength: 24 },
-                Kelvin: { type: String, maxlength: 24 },
-                CalculatedTemp: { type: String, maxlength: 24 },
+                Miles: { type: String, maxlength: 24 },
+                Kilometers: { type: String, maxlength: 24 },
+                Meters: { type: String, maxlength: 24 },
+                Yards: { type: String, maxlength: 24 },
+                Feet: { type: String, maxlength: 24 },
+                Inches: { type: String, maxlength: 24 },
+                CalculatedLength: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',
@@ -24,49 +27,49 @@ class Temp {
                     onUpdate: 'cascade'
                 },
             }, 'A table to store calculated items', [{
-                    route: '/get-all-temps',
+                    route: '/get-all-lengths',
                     method: 'POST',
-                    callback: this.getALLtemps,
+                    callback: this.getALLlengths,
                     requireToken: true,
                 },
                 {
-                    route: '/get-temp-by-id/:id',
+                    route: '/get-length-by-id/:id',
                     method: 'POST',
-                    callback: this.getTempById,
+                    callback: this.getLengthById,
                     requireToken: true,
                 },
                 {
-                    route: '/create-temp',
+                    route: '/create-length',
                     method: 'POST',
-                    callback: this.createTemp,
+                    callback: this.createLength,
                     requireToken: true,
                 },
                 {
-                    route: '/update-temp/id/:id',
+                    route: '/update-length/id/:id',
                     method: 'PUT',
-                    callback: this.updateTemp,
+                    callback: this.updateLength,
                     requireToken: true,
                 },
                 {
-                    route: '/delete-temp/id/:id',
+                    route: '/delete-length/id/:id',
                     method: 'DELETE',
-                    callback: this.deleteTemp,
+                    callback: this.deleteLength,
                     requireToken: true,
                 }
             ]];
     }
-    getALLtemps(model) {
+    getALLlengths(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"]
             };
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.get(req, null, null);
+            let lengthCtrl = model.controller;
+            let resp = yield lengthCtrl.get(req, null, null);
             console.log('from calc model resp: ', resp);
             res.json({ message: 'works...', resp });
         });
     }
-    getTempById(model) {
+    getLengthById(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             req.body = {
                 get: ["*"],
@@ -74,33 +77,33 @@ class Temp {
                     id: req.params.id
                 }
             };
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.get(req, null, null);
+            let lengthCtrl = model.controller;
+            let resp = yield lengthCtrl.get(req, null, null);
             console.log('from calc model resp: ', resp);
             res.json({ message: 'Success', resp });
         });
     }
-    createTemp(model) {
+    createLength(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.insert(req, null, null);
+            let lengthCtrl = model.controller;
+            let resp = yield lengthCtrl.insert(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
-    updateTemp(model) {
+    updateLength(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.update(req, null, null);
+            let lengthCtrl = model.controller;
+            let resp = yield lengthCtrl.update(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
-    deleteTemp(model) {
+    deleteLength(model) {
         return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             console.log('req.body====>', req.body);
-            let tempCtrl = model.controller;
-            let resp = yield tempCtrl.remove(req, null, null);
+            let lengthCtrl = model.controller;
+            let resp = yield lengthCtrl.remove(req, null, null);
             res.json({ message: 'works...', resp });
         });
     }
@@ -111,4 +114,4 @@ class Temp {
         return this._model;
     }
 }
-exports.Temp = Temp;
+exports.Length = Length;

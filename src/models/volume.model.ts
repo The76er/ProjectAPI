@@ -1,17 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 
-export class Length {
+export class Vol {
   _model: any;
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      Miles: { type: String, maxlength: 24 },
-      Kilometers: { type: String, maxlength: 24 },
-      Meters: { type: String, maxlength: 24 },
-      Yards: { type: String, maxlength: 24 },
-      Feet: { type: String, maxlength: 24 },
-      Inches: { type: String, maxlength: 24 },
-      CalculatedLength: { type: String, maxlength: 24 },
+      Liter: { type: String, maxlength: 24 },
+      Gallon: { type: String, maxlength: 24 },
+      Pint: { type: String, maxlength: 24 },
+      CalculatedVol: { type: String, maxlength: 24 },
       user_id: {
         type: Number,
         key: 'foreign',
@@ -20,42 +17,42 @@ export class Length {
         onUpdate: 'cascade'
       },
     }, 'A table to store calculated items', [{
-      route: '/get-all-lengths',
+      route: '/get-all-vol',
       method: 'POST',
-      callback: this.getALLlengths,
+      callback: this.getALLvol,
       requireToken: true,
     },
     
     {
-      route: '/get-length-by-id/:id',
+      route: '/get-vol-by-id/:id',
       method: 'POST',
-      callback: this.getLengthById,
+      callback: this.getVolById,
       requireToken: true,
     },
     
     {
-      route: '/create-length',
+      route: '/create-vol',
       method: 'POST',
-      callback: this.createLength,
+      callback: this.createVol,
       requireToken: true,
     },
     {
-      route: '/update-length/id/:id',
+      route: '/update-vol/id/:id',
       method: 'PUT',
-      callback: this.updateLength,
+      callback: this.updateVol,
       requireToken: true,
     },
     {
-      route: '/delete-length/id/:id',
+      route: '/delete-vol/id/:id',
       method: 'DELETE',
-      callback: this.deleteLength,
+      callback: this.deleteVol,
       requireToken: true,
     }
 
     ]];
   }
 
-  getALLlengths(model: any) {
+  getALLvol(model: any) {
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
@@ -63,14 +60,14 @@ export class Length {
         get: ["*"]
 
       }
-      let lengthCtrl = model.controller;
-      let resp = await lengthCtrl.get(req, null, null);
+      let volCtrl = model.controller;
+      let resp = await volCtrl.get(req, null, null);
       console.log('from calc model resp: ', resp);
       res.json({ message: 'works...', resp });
     }
   }
 
-  getLengthById(model: any) {
+  getVolById(model: any) {
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
@@ -81,41 +78,41 @@ export class Length {
         }
 
       }
-      let lengthCtrl = model.controller;
-      let resp = await lengthCtrl.get(req, null, null);
+      let volCtrl = model.controller;
+      let resp = await volCtrl.get(req, null, null);
       console.log('from calc model resp: ', resp);
       res.json({ message: 'Success', resp });
     }
   }
 
-  createLength(model: any) {
+  createVol(model: any) {
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
       console.log('req.body====>', req.body);
-      let lengthCtrl = model.controller;
-      let resp = await lengthCtrl.insert(req, null, null);
+      let volCtrl = model.controller;
+      let resp = await volCtrl.insert(req, null, null);
       res.json({ message: 'works...', resp });
     }
   }
-  updateLength(model: any) {
+  updateVol(model: any) {
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
       console.log('req.body====>', req.body);
-      let lengthCtrl = model.controller;
-      let resp = await lengthCtrl.update(req, null, null);
+      let volCtrl = model.controller;
+      let resp = await volCtrl.update(req, null, null);
       res.json({ message: 'works...', resp });
     }
   }
 
-  deleteLength(model: any) {
+  deleteVol(model: any) {
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
       console.log('req.body====>', req.body);
-      let lengthCtrl = model.controller;
-      let resp = await lengthCtrl.remove(req, null, null);
+      let volCtrl = model.controller;
+      let resp = await volCtrl.remove(req, null, null);
       res.json({ message: 'works...', resp });
     }
   }
