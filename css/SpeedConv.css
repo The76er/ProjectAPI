@@ -1,0 +1,124 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-container-grid {
+    display: grid;
+    grid-template-rows: 1fr 13fr 1fr;
+    grid-row-gap: 1em;
+}
+
+.r2 {
+    background-color: white;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.r1,
+.r3 {
+    background-color: #0087c7;
+}
+
+.r2c1,
+.r2c3 {
+    background-color: darkgray;
+}
+
+.r2c2 {
+    background-color: #0087c7;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.r1,
+.r2,
+.r3 {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-column-gap: 1em;
+}
+
+.application-name {
+    line-height: 50px;
+    margin-left: 10px;
+}
+
+.left-nav>li>a {
+    display: block;
+    padding: 15px 15px;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.left-nav>li {
+    border: 1px solid white;
+}
+
+.copyright-text {
+    align-self: center;
+    justify-self: center;
+}
+
+.left-nav {
+    list-style-type: none;
+}
+
+.nav-heading {
+    margin: 10px 0px 15px;
+    text-align: center; 
+}
+
+.r2c3 {
+    padding: 0px 15px 10px;
+}
+
+.left-nav > li > a:hover {
+    background-color: #0087c7;
+}
+.box-shadow {
+    -webkit-box-shadow: 0px 1px 9px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 9px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 1px 9px -1px rgba(0, 0, 0, 0.75);
+}   
+
+.conv-text-row-1, .conv-text-row-2 {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conv-textbox-row-1, .conv-textbox-row-2 {
+    align-self: center;
+    justify-self: center;
+    height: 25px;
+    width: 10vw;
+}
+
+.conv-btn-row-1, .conv-btn-row-2 {
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+    height: 30px;
+    width: 10vw;
+}
+
+.btn-logout {
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+    height: 30px;
+    width: 5vw;
+    border-radius: 10px;
+}
