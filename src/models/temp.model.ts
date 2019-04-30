@@ -5,9 +5,9 @@ export class Temp {
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      Celsius: { type: String, maxlength: 24 },
-      Fahrenheit: { type: String, maxlength: 24 },
-      Kelvin: { type: String, maxlength: 24 },
+      Celsius: { type: Number, maxlength: 24 },
+      Fahrenheit: { type: Number, maxlength: 24 },
+      Kelvin: { type: Number, maxlength: 24 },
       CalculatedTemp: { type: String, maxlength: 24 },
       user_id: {
         type: Number,

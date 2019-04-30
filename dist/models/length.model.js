@@ -12,12 +12,12 @@ class Length {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                Miles: { type: String, maxlength: 24 },
-                Kilometers: { type: String, maxlength: 24 },
-                Meters: { type: String, maxlength: 24 },
-                Yards: { type: String, maxlength: 24 },
-                Feet: { type: String, maxlength: 24 },
-                Inches: { type: String, maxlength: 24 },
+                Miles: { type: Number, maxlength: 24 },
+                Kilometers: { type: Number, maxlength: 24 },
+                Meters: { type: Number, maxlength: 24 },
+                Yards: { type: Number, maxlength: 24 },
+                Feet: { type: Number, maxlength: 24 },
+                Inches: { type: Number, maxlength: 24 },
                 CalculatedLength: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
