@@ -5,9 +5,9 @@ export class Speed {
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      MPH: { type: Number, maxlength: 24 },
-      KPH: { type: Number, maxlength: 24 },
-      CalculatedSpeed: { type: String, maxlength: 24 },
+      mph: { type: Number, maxlength: 24 },
+      kph: { type: Number, maxlength: 24 },
+      calculated_speed: { type: String, maxlength: 24 },
       user_id: {
         type: Number,
         key: 'foreign',

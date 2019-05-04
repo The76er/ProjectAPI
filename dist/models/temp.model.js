@@ -12,10 +12,10 @@ class Temp {
     constructor(norm) {
         this.model = [{
                 id: { type: Number, key: 'primary' },
-                Celsius: { type: Number, maxlength: 24 },
-                Fahrenheit: { type: Number, maxlength: 24 },
-                Kelvin: { type: Number, maxlength: 24 },
-                CalculatedTemp: { type: String, maxlength: 24 },
+                celsius: { type: Number, maxlength: 24 },
+                fahrenheit: { type: Number, maxlength: 24 },
+                kelvin: { type: Number, maxlength: 24 },
+                calculated_temp: { type: String, maxlength: 24 },
                 user_id: {
                     type: Number,
                     key: 'foreign',

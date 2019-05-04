@@ -5,10 +5,10 @@ export class Vol {
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      Liter: { type: Number, maxlength: 24 },
-      Gallon: { type: Number, maxlength: 24 },
-      Pint: { type: Number, maxlength: 24 },
-      CalculatedVol: { type: String, maxlength: 24 },
+      liter: { type: Number, maxlength: 24 },
+      gallon: { type: Number, maxlength: 24 },
+      pint: { type: Number, maxlength: 24 },
+      calculated_vol: { type: String, maxlength: 24 },
       user_id: {
         type: Number,
         key: 'foreign',

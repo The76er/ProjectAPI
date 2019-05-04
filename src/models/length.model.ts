@@ -5,13 +5,13 @@ export class Length {
   constructor(norm: any) {
     this.model = [{
       id: { type: Number, key: 'primary' },
-      Miles: { type: Number, maxlength: 24 },
-      Kilometers: { type: Number, maxlength: 24 },
-      Meters: { type: Number, maxlength: 24 },
-      Yards: { type: Number, maxlength: 24 },
-      Feet: { type: Number, maxlength: 24 },
-      Inches: { type: Number, maxlength: 24 },
-      CalculatedLength: { type: String, maxlength: 24 },
+      miles: { type: Number, maxlength: 24 },
+      kilometers: { type: Number, maxlength: 24 },
+      meters: { type: Number, maxlength: 24 },
+      yards: { type: Number, maxlength: 24 },
+      feet: { type: Number, maxlength: 24 },
+      inches: { type: Number, maxlength: 24 },
+      calculated_length: { type: String, maxlength: 24 },
       user_id: {
         type: Number,
         key: 'foreign',

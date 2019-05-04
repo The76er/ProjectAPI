@@ -30,6 +30,7 @@
     "typescript": "^2.0.6"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.15.2",
     "debug": "^2.2.0",
     "dotenv": "^4.0.0",
